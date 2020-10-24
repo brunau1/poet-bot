@@ -5,6 +5,6 @@ module.exports = {
   quotesGenerator: {
     category: '[name="filter_category"]',
     submitButton: '#new-quote',
-    quote: '.quote-text-1',
+    quote: '.quote-text-',
   },
 };

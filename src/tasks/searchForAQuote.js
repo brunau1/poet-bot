@@ -13,4 +13,17 @@ module.exports = async (tone) => {
     { tone, selectors }
   );
   await page.click(selectors.quotesGenerator.submitButton);
+  await page.waitForSelector(`${selectors.quotesGenerator.quote}1`);
+  const quote = await page.evaluate((selectors) => {
+    let text = document.querySelector(`${selectors.quotesGenerator.quote}1`)
+      .lastChild.textContent;
+    for (let i = 1; i <= 12; i++) {
+      const current = document.querySelector(
+        `${selectors.quotesGenerator.quote}${i}`
+      ).lastChild.textContent;
+      if (current.length < text.length) text = current;
+    }
+    return text;
+  }, selectors);
+  return quote;
 };
