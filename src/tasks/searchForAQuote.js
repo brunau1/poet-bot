@@ -3,7 +3,6 @@ const selectors = require('../utils/selectors');
 const globals = require('../utils/globals');
 
 module.exports = async (tone) => {
-  tone = 'love';
   const page = await Browser.getInstance();
   await page.goto(globals.quotesGeneratorUrl);
   await page.evaluate(

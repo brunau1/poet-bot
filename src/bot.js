@@ -2,7 +2,8 @@ const searchForAQuote = require('./tasks/searchForAQuote');
 const generateThePoem = require('./tasks/generateThePoem');
 
 exports.run = async (tone, postOnFacebook, postOnTwitter) => {
-  const quote = await searchForAQuote(tone);
-  const poem = await generateThePoem(tone);
-  console.log(quote);
+  const category =
+    tone == 'heartbreak' ? 'love' : tone == 'dark' ? 'death' : tone;
+  const quote = await searchForAQuote(category);
+  const poem = await generateThePoem(tone, quote);
 };
