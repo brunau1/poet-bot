@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 let pageInstance = null;
 
-class BrowserPage {
+class Browser {
   static async getInstance() {
     if (!pageInstance) {
       const browser = await puppeteer.launch({ headless: false });
@@ -12,4 +12,4 @@ class BrowserPage {
     return pageInstance;
   }
 }
-module.exports = BrowserPage;
+module.exports = Browser;
